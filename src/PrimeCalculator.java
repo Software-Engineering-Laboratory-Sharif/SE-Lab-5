@@ -1,6 +1,6 @@
 public class PrimeCalculator {
     public static void main(String[] args) {
-        final int UPPER_LIMIT = 10000; // Use a constant for the limit
+        final int UPPER_LIMIT = 10000;
         printPrimeNumbers(UPPER_LIMIT);
     }
 
@@ -11,15 +11,14 @@ public class PrimeCalculator {
                 System.out.print(number + " ");
             }
         }
-        System.out.println(); // Ensures the output ends with a newline
     }
 
     private static boolean isPrime(int num) {
         if (num <= 1) return false;
-        if (num == 2) return true; // 2 is the only even prime number
-        if (num % 2 == 0) return false; // Exclude all even numbers greater than 2
+        if (num == 2) return true;
+        if (num % 2 == 0) return false;
 
-        for (int i = 3; i * i <= num; i += 2) { // Only test odd factors
+        for (int i = 3; i * i <= num; i += 2) {
             if (num % i == 0) {
                 return false;
             }
