@@ -1,7 +1,7 @@
 import java.util.*;
 
 class MaxFlow {
-    static final int V = 6; // Number of vertices in graph
+    static final int V = 10; // Number of vertices in graph
 
     boolean bfs(int[][] rGraph, int s, int t, int[] parent) {
         boolean[] visited = new boolean[V];
@@ -57,27 +57,22 @@ class MaxFlow {
         return max_flow;
     }
 
-    int[][] readGraph() {
-        Scanner scanner = new Scanner(System.in);
-        int[][] graph = new int[V][V];
-        System.out.println("Enter the adjacency matrix of the graph:");
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                graph[i][j] = scanner.nextInt();
-            }
-        }
-        return graph;
-    }
-
     public static void main(String[] args) {
+        int[][] graph = new int[][] {
+                {0, 16, 13, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 10, 12, 0, 0, 0, 0, 0, 0},
+                {0, 4, 0, 0, 14, 0, 0, 0, 0, 0},
+                {0, 0, 9, 0, 0, 20, 0, 0, 0, 0},
+                {0, 0, 0, 7, 0, 4, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 10},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 10},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 10},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 10},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        };
+
         MaxFlow m = new MaxFlow();
-        int[][] graph = m.readGraph();
-        System.out.println("Enter the source vertex: ");
-        Scanner scanner = new Scanner(System.in);
-        int source = scanner.nextInt();
-        System.out.println("Enter the sink vertex: ");
-        int sink = scanner.nextInt();
         System.out.println("The maximum possible flow is " +
-                           m.fordFulkerson(graph, source, sink));
+                           m.fordFulkerson(graph, 0, 9));
     }
 }
