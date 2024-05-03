@@ -28,7 +28,7 @@ for (int i = 0; i < 10000; i++)
 ![image](https://github.com/Software-Engineering-Laboratory-Sharif/SE-Lab-5/assets/59170401/e1d586be-3593-42b9-b141-d37b0b5f18ce)
 
 ## سوال دوم
-برای این سوال کدی را نوشتیم که اعداد اول از 1 تا 10000 را پیدا کند. کد زیر کد اولیه است:
+ برای این سوال کدی را نوشتیم که اعداد اول از 1 تا 10000 را پیدا کند. کد زیر کد اولیه است(`PrimeCalculator.java`):
 
 ```java
 public class PrimeCalculator {
@@ -44,7 +44,6 @@ public class PrimeCalculator {
                 System.out.print(number + " ");
             }
         }
-        System.out.println();
     }
 
     private static boolean checkPrime(int num) {
@@ -75,7 +74,7 @@ public class PrimeCalculator {
 ```java
 public class PrimeCalculator {
     public static void main(String[] args) {
-        final int UPPER_LIMIT = 10000; // Use a constant for the limit
+        final int UPPER_LIMIT = 10000;
         printPrimeNumbers(UPPER_LIMIT);
     }
 
@@ -86,15 +85,14 @@ public class PrimeCalculator {
                 System.out.print(number + " ");
             }
         }
-        System.out.println(); // Ensures the output ends with a newline
     }
 
     private static boolean isPrime(int num) {
         if (num <= 1) return false;
-        if (num == 2) return true; // 2 is the only even prime number
-        if (num % 2 == 0) return false; // Exclude all even numbers greater than 2
+        if (num == 2) return true;
+        if (num % 2 == 0) return false;
 
-        for (int i = 3; i * i <= num; i += 2) { // Only test odd factors
+        for (int i = 3; i * i <= num; i += 2) {
             if (num % i == 0) {
                 return false;
             }
